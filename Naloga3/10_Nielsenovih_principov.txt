@@ -1,0 +1,56 @@
+1. prilagodi se realnemu svetu:
+    - uporabniku prilagojen vmesnik,
+    - izogibanje tehničnim izrazom,
+    - uporabniku je dovoljena uporaba šumnikov.
+
+2. konsistentnost in standardi:
+    - uporabljeni so standardni gradniki,
+    - enostavna izbira datuma,
+    - klikajoči elementi so obarvani modro,
+    - gradniki so vsebinsko razporejeni in grupirani,
+    - enostaven vmesnik.
+
+3. pomoč in dokumentacija:
+    - vmesnik vsebuje navodila,
+    - enostaven vmesnik.
+
+4. uporabnikov nadzor in svoboda:
+    - možnost preklica,
+    - uporabnik ima nadzor,
+    - možnost ponastavitev vnosov,
+    - možnost urejanja podatkov.
+
+5. vidljivost statusa sistema:
+    - statusna vrstica,
+    - vizulizacija napak,
+    - sprememba kurzorja miške,
+    - poudarjanje gradnika pod miško.
+
+6. fleksibilnost in učinkovitost:
+    - bližnjice preko tipkovnice (mnemoniki, pospeševalniki),
+    - premikanje s tab tipko.
+
+7. izogibanje napakam: 
+    - informacija je vidna,
+    - uporaba kombiniranih izvlečnih seznamov,
+    - manj tipkanja,
+    - izogibanje napakam v opisu,
+    - potrditveni dialogi.
+
+8. raje prepoznaj kot si zapomni:
+    - uporaba menijev,
+    - uproaba kombiniranih izvlečnih seznamov,
+    - informacija je vidna.
+
+9. javljanje napak, diagnoza, reševanje:
+    - natančna obvestila o napakah,
+    - skrite tehnične podrobnosti napak,
+    - prijazna obvestila,
+    - brez nekoristnih dialogov.
+
+10. estetika in minimalistično načrtovanje:
+    - preprostost,
+    - dobro grafično načrtovanje,
+    - grupiranje.
+
+
