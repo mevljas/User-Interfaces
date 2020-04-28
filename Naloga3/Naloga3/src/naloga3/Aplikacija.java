@@ -77,9 +77,7 @@ public class Aplikacija extends javax.swing.JFrame {
         krajComboBox = new javax.swing.JComboBox<>();
         vozilo = new javax.swing.JPanel();
         znamkaLabel = new javax.swing.JLabel();
-        znamkaComboBox = new javax.swing.JComboBox<>();
         oznakaLabel = new javax.swing.JLabel();
-        oznakaField = new javax.swing.JTextField();
         barvaLabek = new javax.swing.JLabel();
         barvaComboBox = new javax.swing.JComboBox<>();
         gorivoLabel = new javax.swing.JLabel();
@@ -88,10 +86,12 @@ public class Aplikacija extends javax.swing.JFrame {
         mocJSpinner = new javax.swing.JSpinner();
         prostorninaLabel = new javax.swing.JLabel();
         prostorninaJSpinner1 = new javax.swing.JSpinner();
-        vrstaLabel1 = new javax.swing.JLabel();
         vrstaComboBox1 = new javax.swing.JComboBox<>();
+        vrstaLabel1 = new javax.swing.JLabel();
         sedeziJSpinner2 = new javax.swing.JSpinner();
         sedeziLabel1 = new javax.swing.JLabel();
+        znamkaComboBox = new javax.swing.JComboBox<>();
+        oznakaField = new javax.swing.JTextField();
         registracija = new javax.swing.JPanel();
         datumRegLabel = new javax.swing.JLabel();
         datumRegjDateChooser1 = new com.toedter.calendar.JDateChooser();
@@ -116,35 +116,38 @@ public class Aplikacija extends javax.swing.JFrame {
         zavarovanjeGum = new javax.swing.JCheckBox();
         zavarovanjeStekel = new javax.swing.JCheckBox();
         jSeparator1 = new javax.swing.JSeparator();
-        jToolBar1 = new javax.swing.JToolBar();
-        odpriButton = new javax.swing.JButton();
-        jSeparator2 = new javax.swing.JToolBar.Separator();
-        shraniButton1 = new javax.swing.JButton();
-        jSeparator4 = new javax.swing.JToolBar.Separator();
-        ponastaviButton = new javax.swing.JButton();
-        jSeparator3 = new javax.swing.JToolBar.Separator();
+        gumbi = new javax.swing.JPanel();
         prekliciButton = new javax.swing.JButton();
+        shraniVnos = new javax.swing.JButton();
+        ponastaviButton = new javax.swing.JButton();
         statusnaVrstica = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         datotekaMenu = new javax.swing.JMenu();
-        dOdpri = new javax.swing.JMenuItem();
         uShrani = new javax.swing.JMenuItem();
+        dOdpri = new javax.swing.JMenuItem();
         dIzhod = new javax.swing.JMenuItem();
         urediMenu = new javax.swing.JMenu();
-        uPreklici = new javax.swing.JMenuItem();
         uPonastavi = new javax.swing.JMenuItem();
+        uPreklici = new javax.swing.JMenuItem();
         PomocMenu = new javax.swing.JMenu();
         pAvtor = new javax.swing.JMenuItem();
         pNavodila = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikacija za zavarovanje avtomobilov");
-        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setMinimumSize(new java.awt.Dimension(700, 800));
+        setPreferredSize(new java.awt.Dimension(720, 600));
 
         zavarovanec.setBorder(javax.swing.BorderFactory.createTitledBorder("Podatki o zavarovancu"));
-        zavarovanec.setPreferredSize(new java.awt.Dimension(660, 170));
+        zavarovanec.setPreferredSize(new java.awt.Dimension(660, 160));
 
         imeLabel.setText("Ime");
+
+        imeField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                imeFieldActionPerformed(evt);
+            }
+        });
 
         priimekLabel.setText("Priimek");
 
@@ -157,12 +160,24 @@ public class Aplikacija extends javax.swing.JFrame {
 
         ulicaLabel.setText("Ulica");
 
-        postaLabel.setText("Poštna št.");
+        postaLabel.setText("Poštna številka");
         postaLabel.setPreferredSize(new java.awt.Dimension(31, 17));
 
-        hisnaLabel.setText("Hišna št.");
+        hisnaLabel.setText("Hišna številka");
+
+        hisnaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hisnaFieldActionPerformed(evt);
+            }
+        });
 
         voznikLabel.setText("Mlad voznik");
+
+        voznikCheckBox.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                voznikCheckBoxActionPerformed(evt);
+            }
+        });
 
         postaComboBox.setForeground(java.awt.Color.black);
         postaComboBox.setPreferredSize(new java.awt.Dimension(30, 29));
@@ -189,75 +204,88 @@ public class Aplikacija extends javax.swing.JFrame {
             .addGroup(zavarovanecLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(zavarovanecLayout.createSequentialGroup()
-                        .addComponent(voznikLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(voznikCheckBox))
-                    .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(zavarovanecLayout.createSequentialGroup()
-                            .addComponent(rojstvoLabel)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(datumRojstva, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, zavarovanecLayout.createSequentialGroup()
-                            .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(priimekLabel)
-                                .addComponent(imeLabel))
-                            .addGap(49, 49, 49)
-                            .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(imeField, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
-                                .addComponent(priimekField)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 62, Short.MAX_VALUE)
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(hisnaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ulicaLabel)
-                    .addComponent(krajLabel)
-                    .addComponent(postaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(voznikLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(imeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(priimekLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(rojstvoLabel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(ulicaField, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hisnaField, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(postaComboBox, 0, 213, Short.MAX_VALUE)
-                    .addComponent(krajComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(65, 65, 65))
+                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(imeField)
+                    .addComponent(priimekField)
+                    .addGroup(zavarovanecLayout.createSequentialGroup()
+                        .addComponent(voznikCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, 29, Short.MAX_VALUE)
+                        .addGap(100, 100, 100))
+                    .addComponent(datumRojstva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(117, 117, 117)
+                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(hisnaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 92, Short.MAX_VALUE)
+                    .addComponent(krajLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(postaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ulicaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(krajComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, 170, Short.MAX_VALUE)
+                    .addComponent(postaComboBox, javax.swing.GroupLayout.Alignment.TRAILING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ulicaField)
+                    .addGroup(zavarovanecLayout.createSequentialGroup()
+                        .addComponent(hisnaField, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         zavarovanecLayout.setVerticalGroup(
             zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(zavarovanecLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(imeLabel)
-                    .addComponent(imeField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(ulicaLabel)
-                    .addComponent(ulicaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(priimekLabel)
-                    .addComponent(priimekField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(hisnaLabel)
-                    .addComponent(hisnaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(datumRojstva, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(krajComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(krajLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(rojstvoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(postaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(postaComboBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addComponent(voznikLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(voznikCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(2, 2, 2)
+                .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(zavarovanecLayout.createSequentialGroup()
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(ulicaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 24, Short.MAX_VALUE))
+                            .addComponent(ulicaField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addGap(3, 3, 3)
+                                .addComponent(hisnaField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addGap(8, 8, 8)
+                                .addComponent(hisnaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(krajLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(krajComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addComponent(postaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(7, 7, 7))
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addComponent(postaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 8, Short.MAX_VALUE))))
+                    .addGroup(zavarovanecLayout.createSequentialGroup()
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(imeField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(imeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(priimekLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(priimekField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(datumRojstva, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                            .addComponent(rojstvoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(zavarovanecLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(zavarovanecLayout.createSequentialGroup()
+                                .addComponent(voznikLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(4, 4, 4))
+                            .addComponent(voznikCheckBox, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addContainerGap())
         );
-
-        getContentPane().add(zavarovanec, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 660, 175));
 
         vozilo.setBorder(javax.swing.BorderFactory.createTitledBorder("Podatki o vozilu"));
 
         znamkaLabel.setText("Znamka");
-
-        znamkaComboBox.setForeground(java.awt.Color.black);
 
         oznakaLabel.setText("Oznaka");
 
@@ -278,14 +306,27 @@ public class Aplikacija extends javax.swing.JFrame {
 
         prostorninaJSpinner1.setModel(new javax.swing.SpinnerNumberModel(1, 1, 11500, 1));
 
-        vrstaLabel1.setText("Vrsta vozila");
-
         vrstaComboBox1.setForeground(java.awt.Color.black);
         vrstaComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Motor", "Osebni avto", "Avtobus", "Tovornjak", "Traktor" }));
+        vrstaComboBox1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                vrstaComboBox1ActionPerformed(evt);
+            }
+        });
+
+        vrstaLabel1.setText("Vrsta vozila");
 
         sedeziJSpinner2.setModel(new javax.swing.SpinnerNumberModel(1, 1, 100, 1));
 
         sedeziLabel1.setText("Št. sedežev");
+
+        znamkaComboBox.setForeground(java.awt.Color.black);
+
+        oznakaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oznakaFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout voziloLayout = new javax.swing.GroupLayout(vozilo);
         vozilo.setLayout(voziloLayout);
@@ -293,69 +334,93 @@ public class Aplikacija extends javax.swing.JFrame {
             voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(voziloLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(znamkaLabel)
-                    .addComponent(oznakaLabel)
-                    .addComponent(barvaLabek)
-                    .addComponent(vrstaLabel1))
-                .addGap(27, 27, 27)
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(oznakaLabel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(barvaLabek, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(vrstaLabel1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(znamkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(26, 26, 26)
+                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(barvaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(oznakaField, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(znamkaComboBox, javax.swing.GroupLayout.Alignment.LEADING, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(vrstaComboBox1, 0, 114, Short.MAX_VALUE))
-                .addGap(63, 63, 63)
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(vrstaComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(113, 113, 113)
+                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(voziloLayout.createSequentialGroup()
-                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mocLabel)
-                            .addComponent(gorivoLabel))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(mocJSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 42, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(gorivoComboBox, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(prostorninaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18))
+                    .addComponent(gorivoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(voziloLayout.createSequentialGroup()
-                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(sedeziLabel1)
-                            .addComponent(prostorninaLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(prostorninaJSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 61, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(sedeziJSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(176, Short.MAX_VALUE))
+                        .addComponent(sedeziLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30))
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addComponent(mocLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(30, 30, 30)))
+                .addGap(29, 29, 29)
+                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(mocJSpinner, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(sedeziJSpinner2, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(prostorninaJSpinner1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                        .addGap(68, 68, 68))
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addComponent(gorivoComboBox, 0, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
         voziloLayout.setVerticalGroup(
             voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(voziloLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(znamkaLabel)
-                    .addComponent(znamkaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(gorivoLabel)
-                    .addComponent(gorivoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oznakaLabel)
-                    .addComponent(oznakaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(mocLabel)
-                    .addComponent(mocJSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(sedeziLabel1)
-                    .addComponent(sedeziJSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(barvaLabek)
-                    .addComponent(barvaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(20, 20, 20)
                 .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(vrstaComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(prostorninaJSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(prostorninaLabel)
-                    .addComponent(vrstaLabel1))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addComponent(znamkaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(oznakaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(74, 74, 74))
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addGap(61, 61, 61)
+                        .addComponent(barvaLabek, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(vrstaLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(15, 15, 15))))
+            .addGroup(voziloLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, voziloLayout.createSequentialGroup()
+                                .addComponent(gorivoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(96, 96, 96))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, voziloLayout.createSequentialGroup()
+                                .addGap(33, 33, 33)
+                                .addComponent(prostorninaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sedeziLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mocLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addContainerGap())
+                    .addGroup(voziloLayout.createSequentialGroup()
+                        .addGroup(voziloLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, voziloLayout.createSequentialGroup()
+                                .addComponent(gorivoComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(prostorninaJSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(sedeziJSpinner2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(mocJSpinner, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, voziloLayout.createSequentialGroup()
+                                .addComponent(znamkaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(oznakaField, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(barvaComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(vrstaComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)))
+                        .addGap(15, 15, 15))))
         );
-
-        getContentPane().add(vozilo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, 660, 170));
 
         registracija.setBorder(javax.swing.BorderFactory.createTitledBorder("Podatki o registraciji"));
 
@@ -375,7 +440,13 @@ public class Aplikacija extends javax.swing.JFrame {
             }
         });
 
-        oznacbaLabel.setText("Reg. označba");
+        oznacbaLabel.setText("Registrska označba");
+
+        oznacbaField.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                oznacbaFieldActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout registracijaLayout = new javax.swing.GroupLayout(registracija);
         registracija.setLayout(registracijaLayout);
@@ -384,36 +455,34 @@ public class Aplikacija extends javax.swing.JFrame {
             .addGroup(registracijaLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(datumRegLabel)
-                    .addComponent(oznacbaLabel))
+                    .addComponent(krajRegLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(datumRegLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 94, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(datumRegjDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, 101, Short.MAX_VALUE)
-                    .addComponent(oznacbaField))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
-                .addComponent(krajRegLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(krajRegComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 201, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(58, 58, 58))
+                    .addComponent(datumRegjDateChooser1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(krajRegComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(105, 105, 105)
+                .addComponent(oznacbaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                .addGap(35, 35, 35)
+                .addComponent(oznacbaField, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         registracijaLayout.setVerticalGroup(
             registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(registracijaLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(datumRegLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(6, 6, 6)
+                .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(datumRegLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(krajRegLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(krajRegComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(datumRegjDateChooser1, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(oznacbaLabel)
-                    .addComponent(oznacbaField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(oznacbaLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(oznacbaField, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(datumRegjDateChooser1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(registracijaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(krajRegComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 26, Short.MAX_VALUE)
+                    .addComponent(krajRegLabel))
+                .addGap(12, 12, 12))
         );
-
-        getContentPane().add(registracija, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 410, 660, 105));
 
         zavarovanje.setBorder(javax.swing.BorderFactory.createTitledBorder("Podatki o zavarovanju"));
 
@@ -433,6 +502,11 @@ public class Aplikacija extends javax.swing.JFrame {
         kaskoGroup.add(kaskoPolno);
         kaskoPolno.setForeground(java.awt.Color.blue);
         kaskoPolno.setText("Polno");
+        kaskoPolno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kaskoPolnoActionPerformed(evt);
+            }
+        });
 
         kaskoGroup.add(kaskoOdbito);
         kaskoOdbito.setForeground(java.awt.Color.blue);
@@ -479,113 +553,87 @@ public class Aplikacija extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(zavarovanjeLayout.createSequentialGroup()
-                        .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 628, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addGroup(zavarovanjeLayout.createSequentialGroup()
+                        .addComponent(dodatnoZavarovanjeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(28, 28, 28)
+                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(zavarovanjeGum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zavarovanjeStekel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zavarovanjeToca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(zavarovanjePotnikov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(zavarovanjeTretjeOsebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(zavarovanjeLayout.createSequentialGroup()
-                                .addComponent(osnovnoZavarovanjeLabel)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(osebnoAo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(OsebnoAoPlus))
+                                .addComponent(zavarovanjeProtiKraji, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(5, 5, 5))
+                            .addComponent(zavarovanjeNaParkiriscu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(62, 62, 62))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, zavarovanjeLayout.createSequentialGroup()
+                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(zavarovanjeLayout.createSequentialGroup()
-                                .addComponent(dodatnoZavarovanjeLabel)
+                                .addComponent(osnovnoZavarovanjeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(zavarovanjeToca)
-                                    .addComponent(zavarovanjeStekel, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(zavarovanjeGum, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(zavarovanjeLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(kaskoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(osebnoAo, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kaskoPolno)
+                                .addComponent(OsebnoAoPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(48, 48, 48)
+                                .addComponent(kaskoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(2, 2, 2)
+                                .addComponent(kaskoPolno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kaskoOdbito)
+                                .addComponent(kaskoOdbito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(kaskoBrez)
-                                .addGap(71, 71, 71))
-                            .addGroup(zavarovanjeLayout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(zavarovanjePotnikov, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 171, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(zavarovanjeTretjeOsebe, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(zavarovanjeNaParkiriscu)
-                                    .addComponent(zavarovanjeProtiKraji))
-                                .addContainerGap(24, Short.MAX_VALUE))))))
+                                .addComponent(kaskoBrez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(66, 66, 66))))
         );
         zavarovanjeLayout.setVerticalGroup(
             zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(zavarovanjeLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(osnovnoZavarovanjeLabel)
-                    .addComponent(osebnoAo)
-                    .addComponent(OsebnoAoPlus)
-                    .addComponent(kaskoLabel)
-                    .addComponent(kaskoPolno)
-                    .addComponent(kaskoOdbito)
-                    .addComponent(kaskoBrez))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 12, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(zavarovanjeNaParkiriscu)
-                    .addComponent(zavarovanjeTretjeOsebe)
-                    .addComponent(zavarovanjeStekel)
-                    .addComponent(dodatnoZavarovanjeLabel))
+                .addGap(12, 12, 12)
+                .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(zavarovanjeLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(osebnoAo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(OsebnoAoPlus, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(zavarovanjeLayout.createSequentialGroup()
+                        .addGap(2, 2, 2)
+                        .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(kaskoBrez, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kaskoOdbito, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kaskoPolno, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(kaskoLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                    .addGroup(zavarovanjeLayout.createSequentialGroup()
+                        .addGap(6, 6, 6)
+                        .addComponent(osnovnoZavarovanjeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator1, javax.swing.GroupLayout.DEFAULT_SIZE, 14, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(zavarovanjeLayout.createSequentialGroup()
+                        .addComponent(dodatnoZavarovanjeLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)
+                        .addGap(63, 63, 63))
+                    .addGroup(zavarovanjeLayout.createSequentialGroup()
                         .addGroup(zavarovanjeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(zavarovanjeToca)
-                            .addComponent(zavarovanjePotnikov))
+                            .addGroup(zavarovanjeLayout.createSequentialGroup()
+                                .addComponent(zavarovanjeStekel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(zavarovanjeToca, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(zavarovanjeLayout.createSequentialGroup()
+                                .addComponent(zavarovanjeTretjeOsebe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(zavarovanjePotnikov, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, zavarovanjeLayout.createSequentialGroup()
+                                .addComponent(zavarovanjeNaParkiriscu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(zavarovanjeProtiKraji, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(zavarovanjeGum))
-                    .addComponent(zavarovanjeProtiKraji))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(zavarovanjeGum, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                        .addContainerGap())))
         );
-
-        getContentPane().add(zavarovanje, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 530, 660, 145));
-
-        jToolBar1.setRollover(true);
-
-        odpriButton.setMnemonic('o');
-        odpriButton.setText("Odpri datoteko");
-        odpriButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                odpriButtonActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(odpriButton);
-        jToolBar1.add(jSeparator2);
-
-        shraniButton1.setMnemonic('s');
-        shraniButton1.setText("Shrani v datoteko");
-        shraniButton1.setFocusable(false);
-        shraniButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-        shraniButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        shraniButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                shraniButton1ActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(shraniButton1);
-        jToolBar1.add(jSeparator4);
-
-        ponastaviButton.setMnemonic('i');
-        ponastaviButton.setText("Ponastavi vnos");
-        ponastaviButton.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                ponastaviButtonActionPerformed(evt);
-            }
-        });
-        jToolBar1.add(ponastaviButton);
-        jToolBar1.add(jSeparator3);
 
         prekliciButton.setMnemonic('r');
         prekliciButton.setText("Prekliči vnos");
@@ -594,17 +642,67 @@ public class Aplikacija extends javax.swing.JFrame {
                 prekliciButtonActionPerformed(evt);
             }
         });
-        jToolBar1.add(prekliciButton);
 
-        getContentPane().add(jToolBar1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 680, 30));
+        shraniVnos.setMnemonic('s');
+        shraniVnos.setText("Shrani vnos");
+        shraniVnos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                shraniVnosActionPerformed(evt);
+            }
+        });
+
+        ponastaviButton.setMnemonic('p');
+        ponastaviButton.setText("Ponastavi vnos");
+        ponastaviButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ponastaviButtonActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout gumbiLayout = new javax.swing.GroupLayout(gumbi);
+        gumbi.setLayout(gumbiLayout);
+        gumbiLayout.setHorizontalGroup(
+            gumbiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gumbiLayout.createSequentialGroup()
+                .addGap(159, 159, 159)
+                .addComponent(shraniVnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(ponastaviButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(prekliciButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(160, 160, 160))
+        );
+        gumbiLayout.setVerticalGroup(
+            gumbiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(gumbiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(gumbiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(shraniVnos, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(ponastaviButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(prekliciButton, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
 
         statusnaVrstica.setText("Aplikacija pripavljena na uporabo.");
-        getContentPane().add(statusnaVrstica, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 690, 660, 30));
+
+        jMenuBar1.setMaximumSize(new java.awt.Dimension(120, 32769));
+        jMenuBar1.setMinimumSize(new java.awt.Dimension(120, 21));
+        jMenuBar1.setPreferredSize(new java.awt.Dimension(100, 21));
 
         datotekaMenu.setMnemonic('d');
         datotekaMenu.setText("Datoteka");
 
+        uShrani.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
+        uShrani.setText("Shrani vnos");
+        uShrani.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uShraniActionPerformed(evt);
+            }
+        });
+        datotekaMenu.add(uShrani);
+
         dOdpri.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_O, java.awt.event.InputEvent.CTRL_MASK));
+        dOdpri.setMnemonic('o');
         dOdpri.setText("Odpri datoteko");
         dOdpri.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -612,15 +710,6 @@ public class Aplikacija extends javax.swing.JFrame {
             }
         });
         datotekaMenu.add(dOdpri);
-
-        uShrani.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_S, java.awt.event.InputEvent.CTRL_MASK));
-        uShrani.setText("Shrani v datoteko");
-        uShrani.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uShraniActionPerformed(evt);
-            }
-        });
-        datotekaMenu.add(uShrani);
 
         dIzhod.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_Q, java.awt.event.InputEvent.CTRL_MASK));
         dIzhod.setMnemonic('i');
@@ -637,15 +726,6 @@ public class Aplikacija extends javax.swing.JFrame {
         urediMenu.setMnemonic('u');
         urediMenu.setText("Uredi");
 
-        uPreklici.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
-        uPreklici.setText("Prekliči vnos");
-        uPreklici.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                uPrekliciActionPerformed(evt);
-            }
-        });
-        urediMenu.add(uPreklici);
-
         uPonastavi.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P, java.awt.event.InputEvent.CTRL_MASK));
         uPonastavi.setText("Ponastavi vnos");
         uPonastavi.addActionListener(new java.awt.event.ActionListener() {
@@ -655,9 +735,18 @@ public class Aplikacija extends javax.swing.JFrame {
         });
         urediMenu.add(uPonastavi);
 
+        uPreklici.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_C, java.awt.event.InputEvent.CTRL_MASK));
+        uPreklici.setText("Prekliči vnos");
+        uPreklici.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uPrekliciActionPerformed(evt);
+            }
+        });
+        urediMenu.add(uPreklici);
+
         jMenuBar1.add(urediMenu);
 
-        PomocMenu.setMnemonic('p');
+        PomocMenu.setMnemonic('m');
         PomocMenu.setText("Pomoč");
 
         pAvtor.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_A, java.awt.event.InputEvent.CTRL_MASK));
@@ -684,6 +773,39 @@ public class Aplikacija extends javax.swing.JFrame {
 
         setJMenuBar(jMenuBar1);
 
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(statusnaVrstica, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zavarovanec, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 656, Short.MAX_VALUE)
+                    .addComponent(vozilo, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(zavarovanje, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 656, Short.MAX_VALUE)
+                    .addComponent(registracija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(gumbi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layout.createSequentialGroup()
+                .addGap(10, 10, 10)
+                .addComponent(zavarovanec, javax.swing.GroupLayout.DEFAULT_SIZE, 161, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(vozilo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(registracija, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(10, 10, 10)
+                .addComponent(zavarovanje, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(10, 10, 10)
+                .addComponent(gumbi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(0, 0, 0)
+                .addComponent(statusnaVrstica, javax.swing.GroupLayout.DEFAULT_SIZE, 27, Short.MAX_VALUE)
+                .addGap(0, 0, 0))
+        );
+
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
@@ -692,51 +814,40 @@ public class Aplikacija extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_krajRegComboBox1ActionPerformed
 
-    private void zavarovanjeNaParkiriscuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zavarovanjeNaParkiriscuActionPerformed
+    private void krajComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_krajComboBoxActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_zavarovanjeNaParkiriscuActionPerformed
+    }//GEN-LAST:event_krajComboBoxActionPerformed
+
+    private void postaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postaComboBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_postaComboBoxActionPerformed
+
+    private void shraniVnosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shraniVnosActionPerformed
+        saveData();
+    }//GEN-LAST:event_shraniVnosActionPerformed
 
     private void ponastaviButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ponastaviButtonActionPerformed
         clearInputs();
     }//GEN-LAST:event_ponastaviButtonActionPerformed
 
-    private void odpriButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_odpriButtonActionPerformed
-        odpriCB();
-    }//GEN-LAST:event_odpriButtonActionPerformed
+    private void prekliciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prekliciButtonActionPerformed
+        izhodCB();
+    }//GEN-LAST:event_prekliciButtonActionPerformed
+
+    private void imeFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_imeFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_imeFieldActionPerformed
+
+    private void pNavodilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pNavodilaActionPerformed
+        navodila();
+    }//GEN-LAST:event_pNavodilaActionPerformed
 
     private void pAvtorActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pAvtorActionPerformed
         if (inputsLoaded) {
+            statusnaVrstica.setForeground(Color.BLACK);
             statusnaVrstica.setText("Avtor: Sebastjan Mevlja");
         }
-
     }//GEN-LAST:event_pAvtorActionPerformed
-
-    private void dOdpriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dOdpriActionPerformed
-        odpriCB();
-    }//GEN-LAST:event_dOdpriActionPerformed
-
-    private void dIzhodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dIzhodActionPerformed
-        izhodCB();
-
-    }//GEN-LAST:event_dIzhodActionPerformed
-
-    private void uShraniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uShraniActionPerformed
-        saveData();
-    }//GEN-LAST:event_uShraniActionPerformed
-
-    private void pNavodilaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pNavodilaActionPerformed
-        JOptionPane.showMessageDialog(this,
-                "Aplikacija omogoča sklepanje avtomobilskih zavarovanj. \n"
-                + "Za uspešno prijavo morajo biti pravilno izpolnjena vsa vnosna polja. \n"
-                + "Ime in priimek ne smeta vsebovati števil. \n"
-                + "Registrska označba je sestavljena iz oznake registracijskega območja (LJ, MB, KR ...),\n"
-                + "treh do šestih velikih črk ali kombinacije velikih črk in številk.\n"
-                + "Za drugim znakom registrske oznake vsebuje pomišljaj.\n"
-                + "Primer: 'KP KL-123'\n"
-                + "Ob napačnem vnosu se vnosno polje obravna rdeče in v statusni vrstici se prikaže sporočilo o napaki.",
-                "Navodila",
-                JOptionPane.INFORMATION_MESSAGE);
-    }//GEN-LAST:event_pNavodilaActionPerformed
 
     private void uPrekliciActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uPrekliciActionPerformed
         izhodCB();
@@ -746,21 +857,45 @@ public class Aplikacija extends javax.swing.JFrame {
         clearInputs();
     }//GEN-LAST:event_uPonastaviActionPerformed
 
-    private void shraniButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_shraniButton1ActionPerformed
-        saveData();
-    }//GEN-LAST:event_shraniButton1ActionPerformed
-
-    private void prekliciButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_prekliciButtonActionPerformed
+    private void dIzhodActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dIzhodActionPerformed
         izhodCB();
-    }//GEN-LAST:event_prekliciButtonActionPerformed
+    }//GEN-LAST:event_dIzhodActionPerformed
 
-    private void krajComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_krajComboBoxActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_krajComboBoxActionPerformed
+    private void dOdpriActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_dOdpriActionPerformed
+        odpriCB();
+    }//GEN-LAST:event_dOdpriActionPerformed
 
-    private void postaComboBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_postaComboBoxActionPerformed
+    private void uShraniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uShraniActionPerformed
+        saveData();
+    }//GEN-LAST:event_uShraniActionPerformed
+
+    private void zavarovanjeNaParkiriscuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zavarovanjeNaParkiriscuActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_postaComboBoxActionPerformed
+    }//GEN-LAST:event_zavarovanjeNaParkiriscuActionPerformed
+
+    private void kaskoPolnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kaskoPolnoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_kaskoPolnoActionPerformed
+
+    private void hisnaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hisnaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_hisnaFieldActionPerformed
+
+    private void oznakaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oznakaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oznakaFieldActionPerformed
+
+    private void vrstaComboBox1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_vrstaComboBox1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_vrstaComboBox1ActionPerformed
+
+    private void oznacbaFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_oznacbaFieldActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_oznacbaFieldActionPerformed
+
+    private void voznikCheckBoxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_voznikCheckBoxActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_voznikCheckBoxActionPerformed
 
     /**
      * @param args the command line arguments
@@ -805,6 +940,21 @@ public class Aplikacija extends javax.swing.JFrame {
         datumRegjDateChooser1.setLocale(locale);
     }
 
+    private void navodila() {
+        JOptionPane.showMessageDialog(this,
+                "Aplikacija omogoča sklepanje avtomobilskih zavarovanj. \n"
+                + "Za uspešno prijavo morajo biti pravilno izpolnjena vsa vnosna polja. \n"
+                + "Ime in priimek ne smeta vsebovati števil. \n"
+                + "Registrska označba je sestavljena iz oznake registracijskega območja (LJ, MB, KR ...),\n"
+                + "treh do šestih velikih črk ali kombinacije velikih črk in številk.\n"
+                + "Za drugim znakom registrske oznake vsebuje pomišljaj.\n"
+                + "Primer: 'KP KL-123'\n"
+                + "Ob napačnem vnosu se vnosno polje obravna rdeče in v statusni vrstici se prikaže sporočilo o napaki.\n"
+                + "Shranjen vnos lahko v aplikaciji ponovno odprete in urejate.",
+                "Navodila",
+                JOptionPane.INFORMATION_MESSAGE);
+    }
+
     private void setPosts() {
         String fileName = "poste.txt";
 
@@ -818,6 +968,7 @@ public class Aplikacija extends javax.swing.JFrame {
                 postaComboBox.addItem(line[0] + " " + line[1]);
 
             }
+            in.close();
 
         } catch (FileNotFoundException ex) {
             disableInputs();
@@ -870,6 +1021,7 @@ public class Aplikacija extends javax.swing.JFrame {
                 barvaComboBox.addItem(in.nextLine());
 
             }
+            in.close();
 
         } catch (FileNotFoundException ex) {
             statusnaVrstica.setText("* Pozor: Datoteka " + fileName + " ne obstaja.");
@@ -894,6 +1046,7 @@ public class Aplikacija extends javax.swing.JFrame {
                 krajRegComboBox1.addItem(vrstica);
 
             }
+            in.close();
 
         } catch (FileNotFoundException ex) {
             disableInputs();
@@ -917,42 +1070,47 @@ public class Aplikacija extends javax.swing.JFrame {
                     options,
                     options[1]);
             if (n == 0) {
-                resetBorders();
-                imeField.setText("");
-                priimekField.setText("");
-                datumRojstva.setDate(null);
-                voznikCheckBox.setSelected(false);
-                ulicaField.setText("");
-                hisnaField.setText("");
-                krajComboBox.setSelectedIndex(0);
-                postaComboBox.setSelectedIndex(0);
-                znamkaComboBox.setSelectedIndex(0);
-                gorivoComboBox.setSelectedIndex(0);
-                barvaComboBox.setSelectedIndex(0);
-                vrstaComboBox1.setSelectedIndex(0);
-                krajRegComboBox1.setSelectedIndex(0);
-                oznakaField.setText("");
-                mocJSpinner.setValue(1);
-                prostorninaJSpinner1.setValue(1);
-                sedeziJSpinner2.setValue(1);
-                datumRegjDateChooser1.setDate(null);
-                oznacbaField.setText("");
-                osebnoAo.setSelected(true);
-                OsebnoAoPlus.setSelected(false);
-                kaskoPolno.setSelected(false);
-                kaskoOdbito.setSelected(false);
-                kaskoBrez.setSelected(true);
-                zavarovanjeStekel.setSelected(false);
-                zavarovanjeToca.setSelected(false);
-                zavarovanjeGum.setSelected(false);
-                zavarovanjeTretjeOsebe.setSelected(false);
-                zavarovanjePotnikov.setSelected(false);
-                zavarovanjeNaParkiriscu.setSelected(false);
-                zavarovanjeProtiKraji.setSelected(false);
-                statusnaVrstica.setText("Vnosi uspešno ponastavljeni.");
+                resetInputs();
             }
         }
 
+    }
+
+    private void resetInputs() {
+        resetBorders();
+        imeField.setText("");
+        priimekField.setText("");
+        datumRojstva.setDate(null);
+        voznikCheckBox.setSelected(false);
+        ulicaField.setText("");
+        hisnaField.setText("");
+        krajComboBox.setSelectedIndex(0);
+        postaComboBox.setSelectedIndex(0);
+        znamkaComboBox.setSelectedIndex(0);
+        gorivoComboBox.setSelectedIndex(0);
+        barvaComboBox.setSelectedIndex(0);
+        vrstaComboBox1.setSelectedIndex(0);
+        krajRegComboBox1.setSelectedIndex(0);
+        oznakaField.setText("");
+        mocJSpinner.setValue(1);
+        prostorninaJSpinner1.setValue(1);
+        sedeziJSpinner2.setValue(1);
+        datumRegjDateChooser1.setDate(null);
+        oznacbaField.setText("");
+        osebnoAo.setSelected(true);
+        OsebnoAoPlus.setSelected(false);
+        kaskoPolno.setSelected(false);
+        kaskoOdbito.setSelected(false);
+        kaskoBrez.setSelected(true);
+        zavarovanjeStekel.setSelected(false);
+        zavarovanjeToca.setSelected(false);
+        zavarovanjeGum.setSelected(false);
+        zavarovanjeTretjeOsebe.setSelected(false);
+        zavarovanjePotnikov.setSelected(false);
+        zavarovanjeNaParkiriscu.setSelected(false);
+        zavarovanjeProtiKraji.setSelected(false);
+        statusnaVrstica.setForeground(Color.BLACK);
+        statusnaVrstica.setText("Vnosi uspešno ponastavljeni.");
     }
 
     private void saveData() {
@@ -1142,6 +1300,12 @@ public class Aplikacija extends javax.swing.JFrame {
         String dash = plate.substring(4, 5);
         String secondPart = plate.substring(5, plate.length());
 
+        if (firstPart.length() != 2 || secondPart.length() < 3 || secondPart.length() > 6) {
+            statusnaVrstica.setForeground(Color.RED);
+            statusnaVrstica.setText("* Pozor: Vpisana registrska označba vsebuje napačno število znakov.");
+            return true;
+        }
+
         if (!region.equals("CE") && !region.equals("GO") && !region.equals("KK")
                 && !region.equals("KR") && !region.equals("LJ") && !region.equals("MB")
                 && !region.equals("MS") && !region.equals("NM") && !region.equals("PO")
@@ -1156,22 +1320,7 @@ public class Aplikacija extends javax.swing.JFrame {
             return true;
         }
 
-        if (!Pattern.matches("[A-Z0-9]+", firstPart)) {
-            statusnaVrstica.setForeground(Color.RED);
-            statusnaVrstica.setText("* Pozor: Vpisana registrska označba vsebuje nedovoljene znake.");
-            return true;
-        }
-        if (firstPart.length() != 2) {
-            statusnaVrstica.setForeground(Color.RED);
-            statusnaVrstica.setText("* Pozor: Vpisana registrska označba vsebuje napačno število znakov");
-            return true;
-        }
-        if (secondPart.length() < 3 || secondPart.length() > 6) {
-            statusnaVrstica.setForeground(Color.RED);
-            statusnaVrstica.setText("* Pozor: Vpisana registrska označba vsebuje napačno število znakov");
-            return true;
-        }
-        if (!Pattern.matches("[A-Z0-9]+", secondPart)) {
+        if (!Pattern.matches("[A-Z0-9]+", firstPart) || !Pattern.matches("[A-Z0-9]+", secondPart)) {
             statusnaVrstica.setForeground(Color.RED);
             statusnaVrstica.setText("* Pozor: Vpisana registrska označba vsebuje nedovoljene znake.");
             return true;
@@ -1233,14 +1382,18 @@ public class Aplikacija extends javax.swing.JFrame {
                     zavarovanjeNaParkiriscu.setSelected((Boolean) jsonObject.get("zavarovanjeParkirisce"));
                     zavarovanjeProtiKraji.setSelected((Boolean) jsonObject.get("zavarovanjeKraja"));
                     resetBorders();
-                    statusnaVrstica.setText("Podatki uspešno naloženi. Shranjena datoteka: " + f.getName());
+                    statusnaVrstica.setForeground(Color.BLACK);
+                    statusnaVrstica.setText("Podatki uspešno naloženi. Naložena datoteka: " + f.getName() + ".");
                 } catch (Exception e) {
-                    statusnaVrstica.setText("* Pozor: Napaka pri branju datoteke: " + f.getName());
-                    e.printStackTrace();
+                    resetInputs();
+                    statusnaVrstica.setForeground(Color.RED);
+                    statusnaVrstica.setText("* Pozor: Napaka pri branju datoteke: " + f.getName() + ". Ali je format pravilen?");
+
                 }
 
             } else {
-                statusnaVrstica.setText("Odpiranje datoteke preklicano");
+                statusnaVrstica.setForeground(Color.BLACK);
+                statusnaVrstica.setText("Odpiranje datoteke preklicano.");
             }
         }
 
@@ -1287,14 +1440,16 @@ public class Aplikacija extends javax.swing.JFrame {
 
                 try (FileWriter fileWriter = new FileWriter(f)) {
                     fileWriter.write(obj.toJSONString());
-                    statusnaVrstica.setText("Podatki uspešno shranjeni. Shranjena datoteka: " + f.getName());
+                    statusnaVrstica.setForeground(Color.BLACK);
+                    statusnaVrstica.setText("Podatki uspešno shranjeni. Shranjena datoteka: " + f.getName() + ".");
                 } catch (Exception e) {
                     statusnaVrstica.setForeground(Color.RED);
-                    statusnaVrstica.setText("* Pozor: Napaka pri shranjevanju nastavitev");
+                    statusnaVrstica.setText("* Pozor: Napaka pri shranjevanju nastavitev.");
                 }
 
             } else {
-                statusnaVrstica.setText("Shranjevanje datoteke preklicano");
+                statusnaVrstica.setForeground(Color.BLACK);
+                statusnaVrstica.setText("Shranjevanje datoteke preklicano.");
             }
         }
 
@@ -1330,16 +1485,13 @@ public class Aplikacija extends javax.swing.JFrame {
     private javax.swing.JLabel dodatnoZavarovanjeLabel;
     private javax.swing.JComboBox<String> gorivoComboBox;
     private javax.swing.JLabel gorivoLabel;
+    private javax.swing.JPanel gumbi;
     private javax.swing.JTextField hisnaField;
     private javax.swing.JLabel hisnaLabel;
     private javax.swing.JTextField imeField;
     private javax.swing.JLabel imeLabel;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JToolBar.Separator jSeparator2;
-    private javax.swing.JToolBar.Separator jSeparator3;
-    private javax.swing.JToolBar.Separator jSeparator4;
-    private javax.swing.JToolBar jToolBar1;
     private javax.swing.JFileChooser jfc;
     private javax.swing.JRadioButton kaskoBrez;
     private javax.swing.ButtonGroup kaskoGroup;
@@ -1352,7 +1504,6 @@ public class Aplikacija extends javax.swing.JFrame {
     private javax.swing.JLabel krajRegLabel;
     private javax.swing.JSpinner mocJSpinner;
     private javax.swing.JLabel mocLabel;
-    private javax.swing.JButton odpriButton;
     private javax.swing.JRadioButton osebnoAo;
     private javax.swing.ButtonGroup osebnoZavarovanjeGroup;
     private javax.swing.JLabel osnovnoZavarovanjeLabel;
@@ -1374,7 +1525,7 @@ public class Aplikacija extends javax.swing.JFrame {
     private javax.swing.JLabel rojstvoLabel;
     private javax.swing.JSpinner sedeziJSpinner2;
     private javax.swing.JLabel sedeziLabel1;
-    private javax.swing.JButton shraniButton1;
+    private javax.swing.JButton shraniVnos;
     private javax.swing.JLabel statusnaVrstica;
     private javax.swing.JMenuItem uPonastavi;
     private javax.swing.JMenuItem uPreklici;
