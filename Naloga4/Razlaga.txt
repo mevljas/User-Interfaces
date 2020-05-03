@@ -1,0 +1,41 @@
+Izbor posameznih gradnikov
+
+Večina izbranih gradnikov omogoča izbiranje ( datePicker in spustni seznami), kar omogoča hitrejši vnos podatkov in zmanjšuje možnost napak.
+Poenostavljeno je tudi preverjanje napačnih vnosov. Omogočena je enostavna izbira datuma s primernim gradnikom.
+Celoten vmesnik je enostaven, prilagojen uporabniku in uporablja standardne gradnike.
+
+
+
+Aranžiranje gradnikov
+
+Gradniki so poravnani. Sorodni gradniki so bližje skupaj. Različni gradniki so grupirani po straneh glede na vrsto podatkov.
+
+
+
+Izbor teksta, barv in slik
+
+Besedilo izvira iz zahtev naloge in se navezuje na izposojo avtomobilov.
+Uporabniški vmesnik ne vsebuje veliko barv in slik, saj bi lahko to uporabnika motilo pri uporabi.
+Rdeča barva predstavlja opozorila na napake in posebej izstopa.
+
+
+
+Načrtovanje povratne informacije
+
+Uporabniški vmesnik vsebuje statusno vrstico, v kateri se izpisujejo sporočila o delovanju in tudi napake.
+Napačno vneseni podatki se obarvajo rdeče.
+Vmesnik vsebuje tudi pojavna okna, ki uporabniku podajo bolj podrobna navodila in obvestila.
+
+
+
+Analiza uporabnikov in njihovih nalog
+
+Ciljni uporabnik je oseba, zaposlena v izposojevalnici vozil.
+Uporabniški vmesnik omogoča zaposlenemu urediti izposojo vozil glede na želje strank.
+Posebno znanje ni potrebno, saj je vmesnik enostaven za uporabo.
+
+
+
+
+
+

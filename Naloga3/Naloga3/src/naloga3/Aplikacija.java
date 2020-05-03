@@ -136,7 +136,6 @@ public class Aplikacija extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Aplikacija za zavarovanje avtomobilov");
         setMinimumSize(new java.awt.Dimension(700, 800));
-        setPreferredSize(new java.awt.Dimension(720, 600));
 
         zavarovanec.setBorder(javax.swing.BorderFactory.createTitledBorder("Podatki o zavarovancu"));
         zavarovanec.setPreferredSize(new java.awt.Dimension(660, 160));
