@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    tools:context=".Osebe">
+
+    <Button
+        android:id="@+id/naprejButton3"
+        android:layout_width="108dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginBottom="40dp"
+        android:onClick="back"
+        android:text="Nazaj"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/naprejButton4"
+        android:layout_width="108dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginLeft="20dp"
+        android:onClick="checkDAta"
+        android:text="Naprej"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/naprejButton3"
+        app:layout_constraintStart_toEndOf="@+id/naprejButton3" />
+
+    <TextView
+        android:id="@+id/seznamText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Seznam oseb"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView11" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="238dp"
+        android:layout_height="142dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="21dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seznamText" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="addPerson"
+        android:text="Dodaj osebo"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/textView11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Vnesite želene osebe. \nVnesti je potrebno vsaj eno osebo.\nOsebe lahko spreminjate s klikom nanje."
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="20dp"
+        android:text="Cena skupaj"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+    <TextView
+        android:id="@+id/cenaSkupaj"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0 €"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/textView15"
+        app:layout_constraintStart_toStartOf="@+id/kartica" />
+
+    <TextView
+        android:id="@+id/karticaLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="52dp"
+        android:text="Kreditna kartica"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/textView15"
+        app:layout_constraintTop_toBottomOf="@+id/textView15" />
+
+    <TextView
+        android:id="@+id/kartica"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:focusable="false"
+        android:text="xxxx-xxxx-xxxx-xxxx"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/karticaLabel"
+        app:layout_constraintStart_toEndOf="@+id/karticaLabel" />
+
+    <Button
+        android:id="@+id/karticaButton"
+        android:layout_width="66dp"
+        android:layout_height="36dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:onClick="enterCard"
+        android:text="Vnesi"
+        app:layout_constraintBottom_toBottomOf="@+id/kartica"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

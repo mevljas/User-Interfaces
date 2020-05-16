@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:screenOrientation="portrait"
+    tools:context=".Oseba">
+
+    <Button
+        android:id="@+id/izberiDatum2"
+        android:layout_width="84dp"
+        android:layout_height="44dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginLeft="14dp"
+        android:text="Izberi"
+        app:layout_constraintBottom_toBottomOf="@+id/datumRoj"
+        app:layout_constraintStart_toEndOf="@+id/datumRoj" />
+
+    <Button
+        android:id="@+id/potrdi"
+        android:layout_width="108dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:onClick="checkDAta"
+        android:text="Potrdi"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/naprejButton6"
+        app:layout_constraintStart_toEndOf="@+id/naprejButton6" />
+
+    <Button
+        android:id="@+id/naprejButton6"
+        android:layout_width="108dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginBottom="92dp"
+        android:onClick="cancel"
+        android:text="Prekliči"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/izbrisi"
+        android:layout_width="108dp"
+        android:layout_height="63dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="80dp"
+        android:onClick="deletePerson"
+        android:text="Izbriši osebo"
+        android:textSize="18sp"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Ime"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ime"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Priimek"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/priimek"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Spol"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/radioGroup"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:text="Datum rojstva"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/datumRoj"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <EditText
+        android:id="@+id/ime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginRight="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView14" />
+
+    <EditText
+        android:id="@+id/priimek"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:maxLength="10"
+        app:layout_constraintStart_toStartOf="@+id/ime"
+        app:layout_constraintTop_toBottomOf="@+id/ime" />
+
+    <EditText
+        android:id="@+id/datumRoj"
+        android:layout_width="111dp"
+        android:layout_height="41dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:focusableInTouchMode="false"
+        android:inputType="text"
+        app:layout_constraintStart_toStartOf="@+id/priimek"
+        app:layout_constraintTop_toBottomOf="@+id/priimek" />
+
+    <RadioGroup
+        android:id="@+id/radioGroup"
+        android:layout_width="213dp"
+        android:layout_height="33dp"
+        android:layout_marginTop="16dp"
+        android:orientation="horizontal"
+        app:layout_constraintStart_toStartOf="@+id/datumRoj"
+        app:layout_constraintTop_toBottomOf="@+id/datumRoj">
+
+
+        <RadioButton
+            android:id="@+id/moski"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="moški" />
+
+        <RadioButton
+            android:id="@+id/zenski"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="ženski" />
+
+    </RadioGroup>
+
+    <TextView
+        android:id="@+id/textView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="16dp"
+        android:text="Vnesite osebne podatke."
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+

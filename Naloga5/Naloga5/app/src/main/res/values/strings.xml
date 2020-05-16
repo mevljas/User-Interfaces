@@ -1,0 +1,30 @@
+<resources>
+    <string name="app_name">Nakup letalskih kart</string>
+    <string-array name="airports_array">
+        <item>Mercury</item>
+        <item>Bangkok</item>
+        <item>Beijing</item>
+        <item>Chicago O’Hare</item>
+        <item>Dubai</item>
+        <item>Dublin</item>
+        <item>Hong Kong</item>
+        <item>Jakarta</item>
+        <item>Kuala Lumpur</item>
+        <item>Kuwait</item>
+        <item>London Heathrow</item>
+        <item>New York JFK</item>
+        <item>Osaka</item>
+        <item>Seoul Incheon</item>
+        <item>Shanghai</item>
+        <item>Singapore</item>
+        <item>Taipei</item>
+        <item>Tokyo Narita</item>
+        <item>Toronto</item>
+    </string-array>
+    <string-array name="classes_array">
+        <item>ekonomski</item>
+        <item>poslovni</item>
+        <item>prvi</item>
+
+    </string-array>
+</resources>

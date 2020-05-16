@@ -1,0 +1,28 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:screenOrientation="portrait"
+    android:orientation="horizontal">
+
+
+    <TextView
+        android:id="@+id/imeList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:maxLength="15"
+        android:textColor="#2196F3"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/priimekList"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="3sp"
+        android:layout_marginLeft="6sp"
+        android:maxLength="15"
+        android:textColor="#2196F3"
+        android:textSize="20sp" />
+
+
+
+</LinearLayout>
