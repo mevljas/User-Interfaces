@@ -127,14 +127,15 @@
             android:id="@+id/summaryDatumPrihoda"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="65dp"
-            android:layout_marginLeft="65dp"
+            android:layout_marginStart="52dp"
+            android:layout_marginLeft="52dp"
             android:layout_marginTop="16dp"
             android:text="TextView"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="@+id/textView26"
             app:layout_constraintStart_toEndOf="@+id/textView26"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.0" />
 
         <TextView
             android:id="@+id/textView28"
