@@ -1,5 +1,5 @@
 # User Interfaces
-Faculty subject about User Interfaces.
+Faculty subject User Interfaces.
 ## Content (Syllabus outline)
 ### Lectures
 User interface software architecture (event oriented
