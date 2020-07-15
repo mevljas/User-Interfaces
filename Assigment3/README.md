@@ -8,4 +8,4 @@ Your application should also enable setting the already entered values to the de
 
 
 
-![Image](https://ucilnica.fri.uni-lj.si/pluginfile.php/108545/mod_assign/intro/SlikaNaloga3-5-en.jpg)
+![image](https://ucilnica.fri.uni-lj.si/pluginfile.php/108545/mod_assign/intro/SlikaNaloga3-5-en.jpg "image")
