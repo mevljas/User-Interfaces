@@ -1,3 +1,5 @@
+# Assigment 5
+
 In integrated development environment **Android Studio** implement an application for mobile platform Android.
 
 The application, which you have to implement is meant as a support for the agency for providing airline tickets. The application should allow for "buying" tickets to a desired destination (only several destinations are available, no more than 15) on a selected date for a given number of persons in a selected class (first, business, economy). You will have to enable user selection of a destination and a departure date, and in case of a return flight also the selection of a return date, and also selection of a desired class.
